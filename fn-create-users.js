@@ -3,9 +3,19 @@ function createUsers(){
     
     for (let i = 0; i < USERS_COUNT; i++) {
         let picId = Math.floor(Math.random() * users.length); // random image
-        $(floors).append("<div class='user' userId=" + i + "'><img src='images/" + users[picId] + "' /></div>"); // add user
+        $(floors).append("<div class='user' userId=" + i + "'><div class='popover'></div><img src='images/" + users[picId] + "' /></div>"); // add user
     }
     $(".user").css({top:calcTopFloor(1),left: 0}); // put users to first floor
+    
+    $(".user").each(function(userId, user){
+        user.position = 0;
+        user.currentFloor = 1;
+        user.wantMoveToFloor = 1;
+        user.wantChangeFloor = false;
+        user.inLift = false;
+        user.waitLift = false;
+    });
+
 }
 
 function calcTopFloor(floor){

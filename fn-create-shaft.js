@@ -11,10 +11,10 @@ function createShaft(){
     let elevator = $(".theElevator")[0];
     $(elevator).height(FLOOR_HEIGHT - 2).width((FLOOR_HEIGHT * 0.75) - 4);
 
-    // Set elevator to 1-st floor
-    elevator.floor = 1;
-    elevator.style.top = (FLOORS * FLOOR_HEIGHT) - (FLOOR_HEIGHT * 1) + (FLOORS - 1) + "px";
+    // Set elevator to last floor
+    elevator.floor = FLOORS;
+    elevator.style.top = (FLOORS - 1) + "px";
     
-    elevator.move = false;
-
+    moveTo(1); // Move lift to first floor
+    
 }

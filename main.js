@@ -5,13 +5,13 @@ let USERS_COUNT = 5;
 const FLOOR_HEIGHT = 50;
 const MOOVE_SPEED = 5;
 const USER_MOOVE_SPEED = 15;
-const CHANCE = 50;
+const CHANCE = 5;
 
 $(document).ready(function(){
     
     reInit();
     changeSettings();
-    
+
     $('[data-toggle="tooltip"]').tooltip();
     
 
@@ -24,4 +24,5 @@ function reInit(){
     createButtons();
     createUsers();
     userMove();
+    
 }

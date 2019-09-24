@@ -29,4 +29,24 @@ div .floor{
 }
 .user {
     position: absolute;
+    transition: top;
+    transition-duration: 1s;
+    -webkit-transition: top;
+    -webkit-transition-duration: 1s;
+    transition-timing-function: cubic-bezier(.1,0,.9,1);
+    z-index: 10;
+}
+.user .popover{
+    display: none;
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    font-size: 10px;
+    background-color: #dfdfdf;
+    color: rgb(255, 0, 0);
+    width: 16px;
+    text-align: center;
+    z-index: 10;
+    border-radius: 3px;
+    border: 1px solid black;
 }
