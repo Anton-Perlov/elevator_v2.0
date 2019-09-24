@@ -26,18 +26,9 @@ function moveTo(floor){
 
         elevator.move = true; // Set the elevator in move state
         elevator.floor = floor; // Set lift current position
-        
-        if(usersInLift.length > 0){
-            $(usersInLift).animate({"left": "-34px"}, 300,"linear", function(){
-                $(elevator).css({"transitionDuration": moveTimeSeconds + "s","top" : moveToPx + "px"}); // move lift
-                $(usersInLift).css({"transitionDuration": moveTimeSeconds + "s","top": calcTopFloor(floor) + "px"}); // move users in lift
-            });
-        }else{
-            $(elevator).css({"transitionDuration": moveTimeSeconds + "s","top" : moveToPx + "px"}); // move lift
-        }
 
-        // $(elevator).css({"transitionDuration": moveTimeSeconds + "s","top" : moveToPx + "px"}); // move lift
-        // $(usersInLift).css({"transitionDuration": moveTimeSeconds + "s","top": calcTopFloor(floor) + "px"}); // move users in lift
+        $(elevator).css({"transitionDuration": moveTimeSeconds + "s","top" : moveToPx + "px"}); // move lift
+        $(usersInLift).css({"transitionDuration": moveTimeSeconds + "s","top": calcTopFloor(floor) + "px"}); // move users in lift
 
         // --------------------------------------------------------------------------------------------------------------------------------------------
         // Focus screen into Lift if it out of screen
@@ -70,10 +61,18 @@ function moveTo(floor){
                 $(user).find(".popover").hide(); // hide popover
                 user.wantChangeFloor = false; // remove flags
                 user.waitLift = false;
-                walk(user); // resume user wlaking
+                $(user).animate({"left": "0px"}, 500,"linear", function(){ // walk out from lift
+                    walk(user); // resume user wlaking
+                });
             }
         });
 
+        usersInLift = getUsers(elevator.floor); // check again who ready to move
+        $.each(usersInLift, function(userId, user){
+            if(user.wantChangeFloor && user.currentFloor == elevator.floor){
+                $(user).animate({"left": "-34px"}, 500,"linear"); // come in lift
+            }
+        });
 
     });
 

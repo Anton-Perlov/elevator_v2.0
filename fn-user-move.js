@@ -21,6 +21,11 @@ function walk(user){
                     user.wantChangeFloor = true;
                     user.waitLift = true;
                     $(user).find(".popover").html(user.wantMoveToFloor).show(); // show decided floor
+                    
+                    let elevator = $(".theElevator")[0];
+                    if(user.currentFloor == elevator.floor && !elevator.move){ // check if lift in this floor
+                        $(user).animate({"left": "-34px"}, 500,"linear"); // if true, come in
+                    }
                 } else {
                     walk(user); // walk again
                 }
