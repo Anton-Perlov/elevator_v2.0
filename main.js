@@ -5,7 +5,7 @@ let USERS_COUNT = 5;
 const FLOOR_HEIGHT = 50;
 const MOOVE_SPEED = 5;
 const USER_MOOVE_SPEED = 15;
-const CHANCE = 15;
+const CHANCE = 10;
 
 $(document).ready(function(){
     
