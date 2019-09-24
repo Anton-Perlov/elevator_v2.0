@@ -20,6 +20,7 @@
     <script src="fn-move-to.js"></script>
     <script src="fn-create-users.js"></script>
     <script src="fn-user-move.js"></script>
+    <script src="fn-change-settings.js"></script>
 
     <title>Title</title>
     
@@ -34,19 +35,29 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="form-inline">
-                <label for="floors-number-input" class="form-label-sm">Floors: &nbsp;</label>
-                <input class="form-control form-control-sm mr-sm-2 " type="number" value="0" min="1" max="25" id="floors-number-input">
-                
-                <div class="form-check-inline">
-                    <label class="form-check-label" for="focus" data-toggle="tooltip" title="Focus to the Lift if it out of screen">
-                        <input type="checkbox" class="form-check-input" id="focus">Focus lift
-                    </label>
+            <form class="form-inline" id="functionsForm">
+                <div class="input-group mr-3 my-2">
+                    <label for="floors-number-input" class="form-label-sm mr-1">Floors:</label>
+                    <input class="form-control form-control-sm mr-3" type="number" value="0" min="1" max="24" id="floors-number-input">
+                    
+                    <label for="floors-number-input" class="form-label-sm mr-1">Tenants:</label>
+                    <input class="form-control form-control-sm mr-3" type="number" value="0" min="1" max="10" id="tenant-number-input">
+                    
+                    <button type="button" class="btn btn-secondary btn-sm " id="ApplyChanges">Apply</button>
+                    
                 </div>
-                <div class="form-check-inline">
-                    <label class="form-check-label" for="folow" data-toggle="tooltip" title="Scroll page to the destination floor">
-                        <input type="checkbox" class="form-check-input" id="folow" checked>Folow lift
-                    </label>
+
+                <div class="input-group my-2">
+                    <div class="form-check-inline">
+                        <label class="form-check-label" for="focus" data-toggle="tooltip" title="Focus to the Lift if it out of screen">
+                            <input type="checkbox" class="form-check-input" id="focus">Focus lift
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label" for="folow" data-toggle="tooltip" title="Scroll page to the destination floor">
+                            <input type="checkbox" class="form-check-input" id="folow" checked>Folow lift
+                        </label>
+                    </div>
                 </div>
             </form>
         </div>

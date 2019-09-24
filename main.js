@@ -10,15 +10,11 @@ const CHANCE = 50;
 $(document).ready(function(){
     
     reInit();
-
-    // Set floor selector default value and make it changeable. 
-    let floorsSelector = $("#floors-number-input")[0];
-    $(floorsSelector).val(FLOORS).on("change", function(){ 
-        FLOORS = $(floorsSelector).val();
-        reInit();
-    });
-
+    changeSettings();
+    
     $('[data-toggle="tooltip"]').tooltip();
+    
+
 });
     
 function reInit(){
