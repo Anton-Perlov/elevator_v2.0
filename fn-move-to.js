@@ -27,9 +27,18 @@ function moveTo(floor){
         elevator.move = true; // Set the elevator in move state
         elevator.floor = floor; // Set lift current position
         
-        $(elevator).css({"transitionDuration": moveTimeSeconds + "s","top" : moveToPx + "px"}); // move lift
-        $(usersInLift).css({"transitionDuration": moveTimeSeconds + "s","top": calcTopFloor(floor) + "px"}); // move users in lift
-        
+        if(usersInLift.length > 0){
+            $(usersInLift).animate({"left": "-34px"}, 300,"linear", function(){
+                $(elevator).css({"transitionDuration": moveTimeSeconds + "s","top" : moveToPx + "px"}); // move lift
+                $(usersInLift).css({"transitionDuration": moveTimeSeconds + "s","top": calcTopFloor(floor) + "px"}); // move users in lift
+            });
+        }else{
+            $(elevator).css({"transitionDuration": moveTimeSeconds + "s","top" : moveToPx + "px"}); // move lift
+        }
+
+        // $(elevator).css({"transitionDuration": moveTimeSeconds + "s","top" : moveToPx + "px"}); // move lift
+        // $(usersInLift).css({"transitionDuration": moveTimeSeconds + "s","top": calcTopFloor(floor) + "px"}); // move users in lift
+
         // --------------------------------------------------------------------------------------------------------------------------------------------
         // Focus screen into Lift if it out of screen
         //
