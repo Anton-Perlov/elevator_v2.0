@@ -11,7 +11,11 @@ $(document).ready(function(){
     
     reInit();
     changeSettings();
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 2f5052752fefe5acbc5e202788bb21c04cdf971d
     $('[data-toggle="tooltip"]').tooltip();
     
 
